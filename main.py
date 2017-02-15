@@ -36,7 +36,9 @@ class Handler(webapp2.RequestHandler):
         self.write(self.render_str(template, **kw))
 
 class Art(db.Model):
-    pass 
+    title = db.StringProperty(required = True)
+    art = db.TextProperty(required = True)
+    creater = db.DateTimeProperty(auto_now_add = True)
 
 class MainPage(Handler):
     def render_front(self, title="", art="", error=""):
